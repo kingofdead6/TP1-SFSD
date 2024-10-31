@@ -91,7 +91,17 @@ FILE* Open(const char *filename, const char *mode) {
 void Close(FILE *file) {
     if (file) fclose(file);
 }
-
+//Turn the record into the string
+void Record_to_String(Record rec , char *s){
+    sprintf(s ,"%s" ,"");
+    sprintf(s, "%d,%s,%s,%s,%d,%d",
+                                   rec.key,
+                                   rec.First_Name,
+                                   rec.Last_Name ,
+                                   rec.Discription ,
+                                   rec.Eraser ?1:0 ,
+                                   rec.size);
+}
 //testing the Abstract Machine
 int main() {
     const char *filename = "testfile.dat";
